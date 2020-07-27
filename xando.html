@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>X and O</title>
+        <link rel="stylesheet" href="xando.css">
+        <script src="xando.js"></script>
+        <script type="text/javascript" src="jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="gamebox">
+                <button id="btn1"><i></i></button>
+                <button id="btn2"><i></i></button>
+                <button id="btn3"><i></i></button>
+                <button id="btn4"><i></i></button>
+                <button id="btn5"><i></i></button>
+                <button id="btn6"><i></i></button>
+                <button id="btn7"><i></i></button>
+                <button id="btn8"><i></i></button>
+                <button id="btn9"><i></i></button>
+            </div>
+           <div id="scoreboard">
+               <div id="turn">TURN</div>
+               <div id="player"></div>
+            <p>Score</p>
+            
+           </div>
+           
+        </div>
+        <script>
+            var move = 1;
+            
+            var play = true;
+            function nextplayer(){
+                if((move%2) == 1){
+                    $("#player").html('O')
+                }
+                else{
+                    $("#player").html('X')
+                }
+            }
+            
+           // var playedvalue =  new Array();
+            var btn1 = "";
+            var btn2 = "";
+            var btn3 = "";
+            var btn4 = "";
+            var btn5 = "";
+            var btn6 = "";
+            var btn7 = "";
+            var btn8 = "";
+            var btn9 = "";
+            var Xwin = 0;
+            var Ywin = 0;
+            function checkwinner(winner){
+                if(winner == 'X'){
+                    Xwin += 1;
+
+                }
+                else if(winner == 'Y'){
+                    Ywin += 1; 
+                }
+            }
+            $('button').click(function(){
+                if($(this).text() == "" && play){
+                    if((move%2) == 1){
+                        $(this).append('X')
+                        $(this).css('color','red');
+                        var buttonId = this.id;
+                        var buttonTest = $(this).text();
+                        if(buttonId == 'btn1' && btn1 == ""){
+                            btn1 = buttonTest;
+                            //console.log(btn1)
+                        }
+                        if(buttonId == 'btn2' && btn2 == ""){
+                            btn2 = buttonTest;
+                            //console.log(btn2)
+                        }
+                        if(buttonId == 'btn3' && btn3 == ""){
+                            btn3 = buttonTest;
+                        }
+                        if(buttonId == 'btn4' && btn4 == ""){
+                            btn4 = buttonTest;
+                        }
+                        if(buttonId == 'btn5' && btn5 == ""){
+                            btn5 = buttonTest;
+                        }
+                        if(buttonId == 'btn6' && btn6 == ""){
+                            btn6 = buttonTest;
+                        }
+                        if(buttonId == 'btn7' && btn7 == ""){
+                            btn7 = buttonTest;
+                        }
+                        if(buttonId == 'btn8' && btn8 == ""){
+                            btn8 = buttonTest;
+                        }
+                        if(buttonId == 'btn9' && btn9 == ""){
+                            btn9 = buttonTest;
+                        }
+                        
+                        //console.log(buttonTest)
+                        //console.log(buttonId)
+                        //playedvalue = [buttonId,buttonTest];
+                        //console.log(playedvalue)
+                        
+                    }
+                    else{
+                        $(this).append('O')
+                        $(this).css('color','green')
+                        //alert($(this).text());
+                        var buttonId = this.id;
+                        var buttonTest = $(this).text();
+                        //playedvalue = [buttonId +' : ' +buttonTest];
+                        //console.log(playedvalue)
+                        if(buttonId == 'btn1' && btn1 == ""){
+                            btn1 = buttonTest;
+                            
+                        }
+                        if(buttonId == 'btn2' && btn2 == ""){
+                            btn2 = buttonTest;
+                            //console.log(btn2)
+                        }
+                        if(buttonId == 'btn3' && btn3 == ""){
+                            btn3 = buttonTest;
+                        }
+                        if(buttonId == 'btn4' && btn4 == ""){
+                            btn4 = buttonTest;
+                        }
+                        if(buttonId == 'btn5' && btn5 == ""){
+                            btn5 = buttonTest;
+                        }
+                        if(buttonId == 'btn6' && btn6 == ""){
+                            btn6 = buttonTest;
+                        }
+                        if(buttonId == 'btn7' && btn7 == ""){
+                            btn7 = buttonTest;
+                        }
+                        if(buttonId == 'btn8' && btn8 == ""){
+                            btn8 = buttonTest;
+                        }
+                        if(buttonId == 'btn9' && btn9 == ""){
+                            btn9 = buttonTest;
+                        }
+                        nextplayer();
+                    }
+                    if(btn1 != '' && btn2 != '' && btn3 != ''){
+                        if(btn1 === btn2 && btn1 == btn3){
+                            alert(btn1 + ' WINS!!!');
+                            checkwinner()
+                            
+                            location.reload()
+                        }
+                    }
+                    if(btn4 != '' && btn5 != '' && btn6 != ''){
+                        if(btn4 === btn5 && btn4 == btn6){
+                            alert(btn4 + ' WINS!!!')
+                        }
+                    }
+                    if(btn7 != '' && btn8 != '' && btn9 != ''){
+                        if(btn7 === btn8 && btn7 == btn9){
+                            alert(btn7 + ' WINS!!!');
+                        }
+                    }
+                    if(btn1 != '' && btn4 != '' && btn7 != ''){
+                        if(btn1 === btn4 && btn1 == btn7){
+                            alert(btn1 + ' WINS!!!')
+                        }
+                    }
+                    if(btn2 != '' && btn5 != '' && btn8 != ''){
+                        if(btn2 === btn5 && btn2 == btn8){
+                            alert(btn2 + ' WINS!!!')
+                        }
+                    }
+                    if(btn3 != '' && btn6 != '' && btn9 != ''){
+                        if(btn3 === btn6 && btn3 == btn9){
+                            alert(btn3 + ' WINS!!!')
+                        }
+                    }
+                    if(btn1 != '' && btn5 != '' && btn9 != ''){
+                        if(btn1 === btn5 && btn1 == btn9){
+                            alert(btn5 + ' WINS!!!')
+                        }
+                    }
+                    if(btn3 != '' && btn5 != '' && btn7 != ''){
+                        if(btn3 === btn5 && btn3 == btn7){
+                            alert(btn8 + ' WINS!!!')
+                        }
+                    }
+
+                    
+                    
+                   
+                    
+                    
+                    move++;
+                    
+                    
+                }
+
+                
+               
+               /* 
+                }
+                */
+            })
+            
+        </script>
+    </body>
+</html>

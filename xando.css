@@ -1,0 +1,29 @@
+#wrapper{
+    width:500px;
+    height: 600px;
+    margin: 0 auto;
+    background-color: black;
+    border-radius: 9px;
+}
+#gamebox{
+    width: 300px;
+    height: 300px;
+    margin: 70px auto;
+    border-radius: 7px;
+    background-color: gray;
+}
+button{
+    width: 70px;
+    height: 70px;
+    margin: 10px;
+}
+#scoreboard{
+    background-color: white; 
+    width: 450px;
+    height: 250;
+    margin: 7px auto;
+    border-radius: 5px;
+}
+#turn{
+    margin: 70px;
+}
